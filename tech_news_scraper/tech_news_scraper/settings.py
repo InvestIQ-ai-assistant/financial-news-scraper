@@ -15,7 +15,7 @@ NEWSPIDER_MODULE = "tech_news_scraper.spiders"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "tech_news_scraper (+http://www.yourdomain.com)"
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+# USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
 
 # Obey robots.txt rules
@@ -52,9 +52,17 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    "tech_news_scraper.middlewares.TechNewsScraperDownloaderMiddleware": 543,
-#}
+
+SCRAPEOPS_API_KEY = "c779bafb-3753-4ced-80e0-be690a6b85b6"
+SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = True
+SCRAPEOPS_FAKE_BROWSER_HEADER_ENABLED = True
+
+DOWNLOADER_MIDDLEWARES = {
+  #  "tech_news_scraper.middlewares.TechNewsScraperDownloaderMiddleware": 543,
+  # "tech_news_scraper.middlewares.ScrapeOpsFakeUserAgentMiddleware": 400,
+  "tech_news_scraper.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware": 401,
+  
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html

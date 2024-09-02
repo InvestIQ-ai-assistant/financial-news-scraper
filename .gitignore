@@ -1,3 +1,4 @@
-myenv
+/myenv
 *.json
 *.log
+__pycache__/
